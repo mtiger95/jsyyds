@@ -1,11 +1,10 @@
-
 /**
  * @description 深拷贝
- * @param {*} obj 
- * @param {*} cache 
- * @returns {any} 
+ * @param {*} obj
+ * @param {*} cache
+ * @returns {any}
  */
-export const deepClone = (obj, cache = new WeakMap()) => {
+export const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): any => {
   if (typeof obj !== 'object') return obj;
   if (obj === null) return obj;
   if (cache.get(obj)) return cache.get(obj);
@@ -26,12 +25,10 @@ export const deepClone = (obj, cache = new WeakMap()) => {
 
 /**
  * @description 检查value是否为Object类型
- * @param {*} value 
+ * @param {*} value
  * @returns {Boolean}
  */
-export const isObject = (value) => {
+export const isObject = (value: any): boolean => {
   const type = typeof value;
   return value != null && (type == 'object' || type == 'function');
-}
-
-
+};

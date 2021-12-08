@@ -5,7 +5,7 @@
   "main": "dist/jsyyds.js",
   "scripts": {
     "prepare": "husky install",
-    "bundle": "rm -f dist/*js* && microbundle -i src/index.js -o dist"
+    "bundle": "rm -rf dist/* && microbundle -i src/index.ts -o dist"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/mtiger95/jsyyds#readme",
   "dependencies": {
+    "@types/webpack-env": "^1.16.3",
+    "axios": "^0.24.0",
     "husky": "^7.0.4"
   },
   "devDependencies": {

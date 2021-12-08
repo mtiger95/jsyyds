@@ -3,13 +3,10 @@ import axios from 'axios';
 const mimeMap = {
   xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   zip: 'application/zip',
-  normal: ''
+  normal: '',
 };
 
-const baseUrl = process.env.VUE_APP_BASE_API;
-
-export function downLoadZip (str, token) {
-  const url = baseUrl + str;
+export function downLoadZip(url: string, token: string): void {
   axios({
     method: 'get',
     url,
@@ -28,13 +25,13 @@ export function downLoadZip (str, token) {
  * @param {*} res blob响应内容
  * @param {String} mimeType MIME类型
  */
-export function resolveBlob (res, mimeType) {
+export function resolveBlob(res, mimeType): void {
   const aLink = document.createElement('a');
   const blob = new Blob([res.data], { type: mimeType });
   // //从response的headers中获取filename, 后端response.setHeader("Content-disposition", "attachment; filename=xxxx.docx") 设置的文件名;
   const patt = new RegExp('filename=([^;]+\\.[^\\.;]+);*');
   const contentDisposition = decodeURI(res.headers['content-disposition']);
-  const result = patt.exec(contentDisposition);
+  const result = patt.exec(contentDisposition) || [];
   const fileNameRes = result[1];
   const fileName = fileNameRes.replace(/\"/g, '');
 
