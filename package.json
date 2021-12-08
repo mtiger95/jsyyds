@@ -1,0 +1,32 @@
+{
+  "name": "ttools",
+  "version": "1.0.0",
+  "description": "常用JS方法封装",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/mtiger95/ttools.git"
+  },
+  "keywords": [
+    "js",
+    "function",
+    "common",
+    "normal"
+  ],
+  "author": "java2script",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtiger95/ttools/issues"
+  },
+  "homepage": "https://github.com/mtiger95/ttools#readme",
+  "dependencies": {
+    "husky": "^7.0.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0"
+  }
+}
