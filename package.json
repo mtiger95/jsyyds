@@ -1,6 +1,6 @@
 {
   "name": "jsyyds",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "常用JS方法封装",
   "main": "dist/jsyyds.js",
   "scripts": {

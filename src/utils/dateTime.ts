@@ -48,7 +48,6 @@ export const countdownTime = (timeStamp: number): boolean | string => {
 /**
  * @description 过去了多久，时间格式化
  * @param {number} time
- * @param {string} option
  * @returns {string}
  */
 export const formatPassedTime = (timeStamp: number): string => {
