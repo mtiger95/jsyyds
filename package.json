@@ -1,14 +1,15 @@
 {
-  "name": "ttools",
-  "version": "1.0.0",
+  "name": "jsyyds",
+  "version": "1.0.1",
   "description": "常用JS方法封装",
-  "main": "index.js",
+  "main": "dist/jsyyds.js",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "bundle": "rm -f dist/*js* && microbundle -i src/index.js -o dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://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@github.com/mtiger95/ttools.git"
+    "url": "git+https://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@github.com/mtiger95/jsyyds.git"
   },
   "keywords": [
     "js",
@@ -19,14 +20,15 @@
   "author": "java2script",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mtiger95/ttools/issues"
+    "url": "https://github.com/mtiger95/jsyyds/issues"
   },
-  "homepage": "https://github.com/mtiger95/ttools#readme",
+  "homepage": "https://github.com/mtiger95/jsyyds#readme",
   "dependencies": {
     "husky": "^7.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0"
+    "@commitlint/config-conventional": "^15.0.0",
+    "microbundle": "^0.14.2"
   }
 }
