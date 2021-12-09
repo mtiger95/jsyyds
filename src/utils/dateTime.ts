@@ -1,7 +1,11 @@
-// 数字格式化
-function preZero(num: number): string {
+/**
+ * @description 数字格式化时补0
+ * @param num
+ * @returns
+ */
+export const preZero = (num: number): string => {
   return num >= 10 ? String(num) : '0' + num;
-}
+};
 
 /**
  * @description 将毫秒格式化成时间

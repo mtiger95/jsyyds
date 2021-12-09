@@ -23,3 +23,5 @@ export const getPageWidth = (): number => {
 
   return Math.max(f.scrollWidth, a.scrollWidth, d.clientWidth);
 };
+
+

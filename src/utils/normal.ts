@@ -30,5 +30,5 @@ export const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): a
  */
 export const isObject = (value: any): boolean => {
   const type = typeof value;
-  return value != null && (type == 'object' || type == 'function');
+  return value != null && (type === 'object' || type === 'function');
 };

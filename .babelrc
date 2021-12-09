@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "jsyyds",
+        "libraryDirectory": "lib"
+      }
+    ]
+  ]
+}

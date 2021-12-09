@@ -1,11 +1,22 @@
 {
   "name": "jsyyds",
-  "version": "1.0.3",
+  "version": "1.1.6",
   "description": "常用JS方法封装",
-  "main": "dist/jsyyds.js",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./dateTime": "./lib/dateTime.js",
+    "./device": "./lib/device.js",
+    "./dom": "./lib/dom.js",
+    "./download": "./lib/download.js",
+    "./event": "./lib/event.js",
+    "./normal": "./lib/normal.js",
+    "./regExp": "./lib/regExp.js",
+    "./store": "./lib/store.js"
+  },
   "scripts": {
     "prepare": "husky install",
-    "bundle": "rm -rf dist/* && microbundle -i src/index.ts -o dist"
+    "bundle": "rm -rf lib/* && microbundle src/index.ts src/*/*.ts -o lib/[name].js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +35,12 @@
   },
   "homepage": "https://github.com/mtiger95/jsyyds#readme",
   "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+    "@babel/preset-typescript": "^7.16.0",
     "@types/webpack-env": "^1.16.3",
-    "axios": "^0.24.0",
+    "babel-plugin-import": "^1.13.3",
     "husky": "^7.0.4"
   },
   "devDependencies": {
