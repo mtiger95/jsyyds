@@ -4,7 +4,7 @@ export const localStore = {
     return result?.length > 0 ? JSON.parse(result) : result;
   },
   setItem: function (key: string, data: any) {
-    var d = typeof data === 'object' ? JSON.stringify(data) : data;
+    const d = typeof data === 'object' ? JSON.stringify(data) : data;
     window.localStorage.setItem(key, d);
   },
   removeItem: function (key: string) {
@@ -21,7 +21,7 @@ export const sessionStore = {
     return result?.length > 0 ? JSON.parse(result) : result;
   },
   setItem: function (key: string, data: any) {
-    var d = typeof data === 'object' ? JSON.stringify(data) : data;
+    const d = typeof data === 'object' ? JSON.stringify(data) : data;
     window.sessionStorage.setItem(key, d);
   },
   removeItem: function (key: string) {
@@ -34,14 +34,14 @@ export const sessionStore = {
 
 export const cookies = {
   set: function (name, value, expiredays) {
-    var exdate = new Date();
+    const exdate = new Date();
     exdate.setDate(exdate.getDate() + (expiredays || 30));
     document.cookie = name + '=' + escape(value) + ';path=/;expires=' + exdate.toUTCString();
   },
   get: function (name) {
-    var arr,
-      reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
-    if ((arr = document.cookie.match(reg))) {
+    const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
+    const arr = document.cookie.match(reg);
+    if (arr) {
       return unescape(arr[2]);
     } else {
       return null;

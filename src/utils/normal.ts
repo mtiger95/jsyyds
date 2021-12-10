@@ -15,7 +15,7 @@ export const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): a
   cache.set(obj, cloneObj);
 
   for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
       cloneObj[key] = deepClone(obj[key], cache);
     }
   }

@@ -41,11 +41,19 @@
     "@babel/preset-typescript": "^7.16.0",
     "@types/webpack-env": "^1.16.3",
     "babel-plugin-import": "^1.13.3",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^7.x.x",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
     "microbundle": "^0.14.2"
   }
 }
