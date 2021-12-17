@@ -42,21 +42,21 @@ export const sessionStore = {
  * @description cookie的方法简略封装
  */
 export const cookies = {
-  set: function (name, value, expiredays) {
+  set: function (name: string, value: any, expiredays: number) {
     const exdate = new Date();
     exdate.setDate(exdate.getDate() + (expiredays || 30));
-    document.cookie = name + '=' + escape(value) + ';path=/;expires=' + exdate.toUTCString();
+    document.cookie = name + '=' + encodeURI(value) + ';path=/;expires=' + exdate.toUTCString();
   },
-  get: function (name) {
+  get: function (name: string) {
     const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
     const arr = document.cookie.match(reg);
     if (arr) {
-      return unescape(arr[2]);
+      return decodeURI(arr[2]);
     } else {
       return null;
     }
   },
-  del: function (name) {
+  del: function (name: string) {
     this.set(name, '', -1);
   },
 };

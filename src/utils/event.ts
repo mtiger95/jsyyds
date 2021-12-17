@@ -4,9 +4,10 @@
  * @param {*} delay
  * @returns {Function}
  */
-export const debounce = (fn, delay, immediate = true) => {
-  let timer = 0;
-  return function (...args) {
+type TFN = (arg: any) => any;
+export const debounce = (fn: TFN, delay: number, immediate = true) => {
+  let timer: any = null;
+  return function (...args: any) {
     if (immediate && !timer) {
       // @ts-ignore
       fn.apply(this, args);
@@ -29,9 +30,9 @@ export const debounce = (fn, delay, immediate = true) => {
  * @param {*} delay
  * @returns {Function}
  */
-export const throttle = (fn, delay, immediate = true) => {
+export const throttle = (fn: TFN, delay: number, immediate = true) => {
   let last = 0;
-  return function (...args) {
+  return function (...args: any) {
     const nowTime = Date.now();
     const canExec = nowTime - last > delay;
     if (immediate) {
