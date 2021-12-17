@@ -1,29 +1,25 @@
 {
   "name": "jsyyds",
-  "version": "1.1.8",
+  "version": "0.0.0-development",
   "description": "常用JS方法封装",
-  "main": "lib/index.js",
-  "exports": {
-    ".": "./lib/index.js",
-    "./dateTime": "./lib/dateTime.js",
-    "./device": "./lib/device.js",
-    "./dom": "./lib/dom.js",
-    "./download": "./lib/download.js",
-    "./event": "./lib/event.js",
-    "./normal": "./lib/normal.js",
-    "./regExp": "./lib/regExp.js",
-    "./store": "./lib/store.js"
-  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "prepare": "husky install",
-    "bundle": "rm -rf lib/* && microbundle src/index.ts src/*/*.ts -o lib/[name].js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://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@github.com/mtiger95/jsyyds.git"
+    "🗳️ --- Builds": "",
+    "build:cjs": "tsc -p .",
+    "build:esm": "tsc -p . --module esnext --outDir dist/esm",
+    "build:types": "tsc -p . -d --emitDeclarationOnly --outDir dist/types",
+    "🌟 --- Mains": "",
+    "build": "rimraf dist && run-p build:*",
+    "watch": "rimraf dist && run-p \"build:* -- --watch\"",
+    "lint": "eslint src --fix",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "js",
@@ -31,8 +27,7 @@
     "common",
     "normal"
   ],
-  "author": "java2script",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mtiger95/jsyyds/issues"
   },
@@ -50,13 +45,24 @@
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
+    "conventional-changelog-conventionalcommits": "^4.6.1",
     "eslint": "^7.x.x",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
-    "microbundle": "^0.14.2"
+    "lint-staged": "^12.1.2",
+    "microbundle": "^0.14.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^18.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtiger95/jsyyds.git"
   }
 }
