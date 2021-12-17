@@ -1,3 +1,15 @@
+### [1.0.1](https://github.com/mtiger95/jsyyds/compare/v1.0.0...v1.0.1) (2021-12-17)
+
+
+### Bug Fixes
+
+* add true of merge ([a36915d](https://github.com/mtiger95/jsyyds/commit/a36915da7f86141bb30544665d49d2f15ed3c82a))
+
+
+### CI/CD
+
+* remove node 14.x on release ([9d61258](https://github.com/mtiger95/jsyyds/commit/9d612589a72ab98d00b74a5ecedf9e3c3f50d4aa))
+
 ## 1.0.0 (2021-12-17)
 
 
