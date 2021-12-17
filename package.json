@@ -1,6 +1,6 @@
 {
   "name": "jsyyds",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "常用JS方法封装",
   "main": "lib/index.js",
   "exports": {
@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "bundle": "rm -rf lib/* && microbundle src/index.ts src/*/*.ts -o lib/[name].js"
+    "bundle": "rm -rf lib/* && microbundle src/index.ts src/*/*.ts -o lib/[name].js",
+    "lint": "eslint src --fix"
   },
   "repository": {
     "type": "git",
@@ -57,6 +58,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
+    "lint-staged": "^12.1.2",
     "microbundle": "^0.14.2"
   }
 }
