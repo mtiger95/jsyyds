@@ -83,10 +83,10 @@ export const formatPassedTime = (timeStamp: number): string => {
  * @param delay 休眠时间
  * @returns {Promise}
  */
-export const wait = (delay) => {
+export const wait = (delay: number) => {
   return new Promise((resolve: any) => {
     setTimeout(() => {
       resolve();
     }, delay);
   });
-}
+};
