@@ -1,3 +1,5 @@
+import { IAnyObj } from '../types';
+
 /**
  * @description 深拷贝
  * @param {*} obj
@@ -35,15 +37,25 @@ export const isObject = (value: any): boolean => {
 
 /**
  * @description 聚合函数
- * 
+ *
  * @param fn 要聚合的函数
  * @returns {*}
  */
 export const composeFns = (...fn: Array<(...args: any) => any>) => {
-  if(fn.length === 0) return (...arg: any) => arg;
-  if(fn.length === 1) return fn[0];
-  
+  if (fn.length === 0) return (...arg: any) => arg;
+  if (fn.length === 1) return fn[0];
+
   return fn.reduce((pre, next) => {
-    return (arg) => next(pre(arg))
+    return (arg) => next(pre(arg));
   });
-}
+};
+
+/**
+ * @description 获取url 上的query参数并转化为对象
+ * @returns {Object}
+ */
+export const getQueryObj = () => {
+  const queryObj = {} as IAnyObj;
+  location.search.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (queryObj[k] = v));
+  return queryObj;
+};
