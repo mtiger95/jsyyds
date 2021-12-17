@@ -7,7 +7,7 @@
 > 目前分以下几个功能模块：
 
 1. normal-常用方法，如：深拷贝
-2. event-事件优化，如：debounce, throttl
+2. event-事件优化，如：debounce, throttle
 3. dateTime-时间格式化，如：倒计时间格式化，已过去时间格式化
 4. dom-Dom 元素的操作，如：获取元素宽高，可视区域宽高
 5. device-访问设备检测相关

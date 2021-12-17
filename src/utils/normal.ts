@@ -32,3 +32,18 @@ export const isObject = (value: any): boolean => {
   const type = typeof value;
   return value != null && (type === 'object' || type === 'function');
 };
+
+/**
+ * @description 聚合函数
+ * 
+ * @param fn 要聚合的函数
+ * @returns {*}
+ */
+export const composeFns = (...fn: Array<(...args: any) => any>) => {
+  if(fn.length === 0) return (...arg: any) => arg;
+  if(fn.length === 1) return fn[0];
+  
+  return fn.reduce((pre, next) => {
+    return (arg) => next(pre(arg))
+  });
+}

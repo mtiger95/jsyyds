@@ -1,3 +1,6 @@
+/**
+ * @description localStorage的方法简略封装
+ */
 export const localStore = {
   getItem: function (key: string) {
     const result = window.localStorage.getItem(key) ?? '';
@@ -15,6 +18,9 @@ export const localStore = {
   },
 };
 
+/**
+ * @description sessionStorage的方法简略封装
+ */
 export const sessionStore = {
   getItem: function (key: string) {
     const result = window.sessionStorage.getItem(key) ?? '';
@@ -32,6 +38,9 @@ export const sessionStore = {
   },
 };
 
+/**
+ * @description cookie的方法简略封装
+ */
 export const cookies = {
   set: function (name, value, expiredays) {
     const exdate = new Date();
