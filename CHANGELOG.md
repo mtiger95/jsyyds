@@ -1,3 +1,21 @@
+## [1.1.0](https://github.com/mtiger95/jsyyds/compare/v1.0.1...v1.1.0) (2021-12-17)
+
+
+### Features
+
+* 添加获取url的query并转化为对象方法 ([0772f10](https://github.com/mtiger95/jsyyds/commit/0772f1043ecf053886202ef4b423858769f97052))
+* 添加获取url的query并转化为对象方法 ([2fc6599](https://github.com/mtiger95/jsyyds/commit/2fc6599aa150bb33fa4261d0aaabfa2307847f0e))
+
+
+### Bug Fixes
+
+* add delay number type ([e939626](https://github.com/mtiger95/jsyyds/commit/e9396267e8d0bac6f6a64934b998a93894ffec1d))
+
+
+### CI/CD
+
+* update readme ([90bd015](https://github.com/mtiger95/jsyyds/commit/90bd0150ff693ff1a3ba4746989193157edef0d5))
+
 ### [1.0.1](https://github.com/mtiger95/jsyyds/compare/v1.0.0...v1.0.1) (2021-12-17)
 
 
