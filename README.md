@@ -1,8 +1,10 @@
 # js tools
 
-[![Node.js CI status](https://github.com/mtiger95/jsyyds/workflows/Node.js%20CI/badge.svg)](https://github.com/mtiger95/jsyyds/actions)
+[![Testing](https://github.com/mtiger95/jsyyds/actions/workflows/test.yml/badge.svg)](https://github.com/mtiger95/jsyyds/actions/workflows/test.yml)
 
+[![Release](https://github.com/mtiger95/jsyyds/actions/workflows/release.yml/badge.svg)](https://github.com/mtiger95/jsyyds/actions/workflows/release.yml)
 
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/jsyyds)
 ## js yyds
 
 > 用原生 JS 封装一些常用的方法，不去依赖其它任何工具库，打磨 JS 基本功，同时避免过于依赖工具库，性能更好，欢迎补充，提 PR

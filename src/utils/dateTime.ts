@@ -76,3 +76,17 @@ export const formatPassedTime = (timeStamp: number): string => {
 
   return `${d.getMonth() + 1}月${d.getDate()}日${d.getHours()}时${d.getMinutes()}分`;
 };
+
+/**
+ * @description 休眠函数
+ * 
+ * @param delay 休眠时间
+ * @returns {Promise}
+ */
+export const wait = (delay) => {
+  return new Promise((resolve: any) => {
+    setTimeout(() => {
+      resolve();
+    }, delay);
+  });
+}
