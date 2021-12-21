@@ -58,7 +58,10 @@ export const composeFns = (...fn: Array<(...args: any) => any>) => {
  */
 export const getQueryObj = () => {
   const queryObj = {} as IAnyObj;
-  location.search.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (queryObj[k] = v));
+  window.location.search.replace(
+    /([^?&=]+)=([^&]+)/g,
+    (_, k, v) => (queryObj[k] = v)
+  );
   return queryObj;
 };
 

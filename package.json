@@ -25,7 +25,13 @@
     "js",
     "function",
     "common",
-    "normal"
+    "normal",
+    "方法封装",
+    "js常用",
+    "深拷贝",
+    "防抖",
+    "节流",
+    "格式化"
   ],
   "license": "MIT",
   "bugs": {
