@@ -1,4 +1,4 @@
-import { IAnyObj } from '../types';
+import { IAnyObj } from "../types";
 
 /**
  * @description 深拷贝
@@ -6,8 +6,11 @@ import { IAnyObj } from '../types';
  * @param {*} cache
  * @returns {any}
  */
-export const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): any => {
-  if (typeof obj !== 'object') return obj;
+export const deepClone = (
+  obj: any,
+  cache: WeakMap<any, any> = new WeakMap()
+): any => {
+  if (typeof obj !== "object") return obj;
   if (obj === null) return obj;
   if (cache.get(obj)) return cache.get(obj);
   if (obj instanceof Date) return new Date(obj);
@@ -32,12 +35,11 @@ export const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): a
  */
 export const isObject = (value: any): boolean => {
   const type = typeof value;
-  return value != null && (type === 'object' || type === 'function');
+  return value != null && (type === "object" || type === "function");
 };
 
 /**
  * @description 聚合函数
- *
  * @param fn 要聚合的函数
  * @returns {*}
  */
@@ -58,4 +60,23 @@ export const getQueryObj = () => {
   const queryObj = {} as IAnyObj;
   location.search.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (queryObj[k] = v));
   return queryObj;
+};
+
+/**
+ * @description 获取两个整数之间的随机整数
+ * @param min 最小整数
+ * @param max 最大整数
+ * @returns {Number} 两个整数之间的随机整数
+ */
+export const getIntRandom = (min: number, max: number): number =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+/**
+ * @description 检验字符串是否是回文
+ * @param str 要检验的字符串
+ * @returns {Boolean}
+ */
+export const isPalindrome = (str: string) => {
+  str = str.replace(/\W/g, "").toLowerCase();
+  return str == str.split("").reverse().join("");
 };

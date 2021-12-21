@@ -79,7 +79,6 @@ export const formatPassedTime = (timeStamp: number): string => {
 
 /**
  * @description 休眠函数
- * 
  * @param delay 休眠时间
  * @returns {Promise}
  */

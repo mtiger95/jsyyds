@@ -62,7 +62,11 @@ export class ReleaseSubscribe {
     this._eventsMap = new Map(); // 事件名与回调函数的映射Map
   }
 
-  private addEvent(eventName: string, eventFnCallback: () => void, once = false) {
+  private addEvent(
+    eventName: string,
+    eventFnCallback: () => void,
+    once = false
+  ) {
     const newArr = this._eventsMap.get(eventName) || [];
     newArr.push({
       fn: eventFnCallback,
@@ -79,8 +83,7 @@ export class ReleaseSubscribe {
   }
 
   /**
-   * 事件订阅
-   *
+   * @description 事件订阅
    * @param eventName 事件名
    * @param eventFnCallback 事件发生时的回调函数
    */
@@ -89,18 +92,16 @@ export class ReleaseSubscribe {
   }
 
   /**
-   * 订阅只执行一次的事件
-   *
+   * @description 订阅只执行一次的事件
    * @param eventName 事件名
    * @param eventFnCallback 事件发生时的回调函数
-   */          
+   */
   public once(eventName: string, eventFnCallback: () => void) {
     this.addEvent(eventName, eventFnCallback, true);
   }
 
   /**
-   * 取消订阅
-   *
+   * @description 取消订阅
    * @param eventName 事件名
    * @param eventFnCallback 事件发生时的回调函数
    */
@@ -120,8 +121,7 @@ export class ReleaseSubscribe {
   }
 
   /**
-   * 主动通知并执行注册的回调函数
-   *
+   * @description 主动通知并执行注册的回调函数
    * @param eventName 事件名
    */
   public emit(eventName: string) {
