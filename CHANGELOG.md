@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/mtiger95/jsyyds/compare/v1.1.0...v1.2.0) (2021-12-21)
+
+
+### Features
+
+* 添加获取随机数和检测回文方法 ([76c5221](https://github.com/mtiger95/jsyyds/commit/76c5221f4b443c0945594a5a551f47f9c3fb7b54))
+
 ## [1.1.0](https://github.com/mtiger95/jsyyds/compare/v1.0.1...v1.1.0) (2021-12-17)
 
 
