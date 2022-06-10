@@ -83,3 +83,11 @@ export const isPalindrome = (str: string) => {
   str = str.replace(/\W/g, "").toLowerCase();
   return str == str.split("").reverse().join("");
 };
+
+// const getImgUrl = (name: string) => {
+//   const path = `../../src/assets/images/${name}`;
+//   const modules = import.meta.globEager('../../src/assets/images/*');
+//   return modules[path].default;
+// };
+ 
+

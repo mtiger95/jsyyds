@@ -30,7 +30,7 @@ export const DATE_REG = /^(\d{4})-(\d{2})-(\d{2})$/;
 export const DATETIME_REG = /^(\d{4})-(\d{2})-(\d{2}) (\d{2})(?::\d{2}|:(\d{2}):(\d{2}))$/;
 
 /**
- * @description 其它正则
+ * @description 其它正则，特殊字符检测
  */
 export const SPECIAL_SYMBOL_REG = /[^%&',;=?$\x22]+/;
 export const URL_REG = /(http|ftp|https):\/\/[\w-_]+(.[\w-_]+)+([\w-.,@?^=%&:/~+#]*[\w-@?^=%&/~+#])?/;
@@ -42,7 +42,7 @@ export const PWD_REG = /^[a-zA-Z]\w{5,17}$/;
  * @param type 要检测的类型
  * @returns {Boolean}
  */
-export const checkStr = function (str: string, type: string) {
+export const regCheck = function (str: string, type: string) {
   switch (type) {
     case "PHONE": // 手机号码
       return PHONE_REG.test(str);
@@ -58,7 +58,7 @@ export const checkStr = function (str: string, type: string) {
       return QQ_REG.test(str);
     case "EMAIL": // 邮箱
       return EMAIL_REG.test(str);
-    case "FLOAT2": // 金额(小数点2位)
+    case "FLOAT2": // 金额或非整数(小数点2位)
       return FLOAT2_REG.test(str);
     case "URL": // 网址
       return URL_REG.test(str);
