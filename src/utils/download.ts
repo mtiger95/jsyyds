@@ -19,9 +19,12 @@ export function resolveBlob(res: any, mimeType = mimeMap.xlsx): void {
   const fileNameRes = result[1];
   const fileName = fileNameRes.replace(/"/g, '');
 
-  aLink.href = URL.createObjectURL(blob);
+  const downloadUrl = window.URL.createObjectURL(blob);
+
+  aLink.href = downloadUrl
   aLink.setAttribute('download', fileName); // 设置下载文件名称
   document.body.appendChild(aLink);
   aLink.click();
-  document.body.appendChild(aLink);
+  window.URL.revokeObjectURL(downloadUrl);
+  document.body.removeChild(aLink);
 }
