@@ -49,7 +49,7 @@ const checkKey = (event: IAnyObj, keyStr: TKeyStr) => {
   return rightKey;
 };
 
-const noDebuger: (
+export const noDebuger: (
   whenConsoleOpenedCallback: (e?: Event) => void,
   limitStr: string
 ) => void = (
@@ -157,5 +157,3 @@ export const browserCloseOrFreshAction = (whenCloseCb: () => void, whenFreshCb: 
     beginTime = new Date().getTime();
   };
 };
-
-export default {noDebuger, browserCloseOrFreshAction};

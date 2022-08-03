@@ -1,10 +1,10 @@
 {
   "name": "jsyyds",
-  "version": "2.2.0",
+  "version": "2.5.0",
   "description": "常用JS方法封装",
-  "main": "dist/index.min.js",
+  "main": "./dist/index.min.js",
   "files": [
-    "dist"
+    "./dist/**"
   ],
   "scripts": {
     "prepare": "husky install",
