@@ -311,6 +311,43 @@ export const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
   }, []);
 };
 
+/**
+ * @description: 节流函数
+ * @param {function} fn
+ * @param {number} delay
+ * @return {function}
+ */
+function throttle(fn: (p: any) => any, delay: number) {
+  let oldtime = Date.now();
+  return function (...args: any) {
+    const newtime = Date.now();
+    if (newtime - oldtime >= delay) {
+      // eslint-disable-next-line prefer-spread
+      fn.apply(null, args);
+      oldtime = Date.now();
+    }
+  };
+}
+
+/**
+ * @description: 防抖函数
+ * @param {function} fn
+ * @param {number} wait
+ * @return {function}
+ */
+function debounce(fn: (p: any) => any, delay: number) {
+  let timer = 0; // 维护一个 timer
+  return function (...args: any) {
+    if (timer) {
+      window.clearTimeout(timer);
+    }
+    timer = window.setTimeout(function () {
+      // eslint-disable-next-line prefer-spread
+      fn.apply(null, args);
+    }, delay);
+  };
+}
+
 export default {
   deepClone,
   composeFns,
@@ -325,4 +362,6 @@ export default {
   isEqualObject,
   omitPropInObjArray,
   flattern,
+  throttle,
+  debounce,
 };

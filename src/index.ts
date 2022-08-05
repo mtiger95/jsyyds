@@ -9,8 +9,8 @@ import regExp from "./utils/regExp";
 import special from "./utils/special";
 
 export default {
-  normal,
-  download,
-  regExp,
-  special,
+  ...normal,
+  ...download,
+  ...regExp,
+  ...special,
 };

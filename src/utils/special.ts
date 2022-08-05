@@ -158,3 +158,8 @@ export const browserCloseOrFreshAction = (whenCloseCb: () => void, whenFreshCb: 
     beginTime = new Date().getTime();
   };
 };
+
+export default {
+  noDebuger,
+  browserCloseOrFreshAction
+};

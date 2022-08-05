@@ -128,6 +128,24 @@
  * @return {T}
  */
 ```
+- throttle - 节流函数
+```js
+/**
+ * @description: 节流函数
+ * @param {function} fn
+ * @param {number} delay
+ * @return {function}
+ */
+```
+- debounce - 防抖函数
+```js
+/**
+ * @description: 防抖函数
+ * @param {function} fn
+ * @param {number} wait
+ * @return {function}
+ */
+```
 
 2. special - 浏览器某些行为监测，如：浏览器是刷新还是关闭，禁止打开控制台。
 ```js
