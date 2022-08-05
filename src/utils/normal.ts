@@ -2,8 +2,8 @@ import { IAnyObj } from "../types";
 
 /**
  * @description 深拷贝
- * @param {*} obj
- * @param {*} cache
+ * @param {any} obj
+ * @param {any} [cache]
  * @returns {any}
  */
 export const deepClone = (
@@ -30,7 +30,7 @@ export const deepClone = (
 
 /**
  * @description 聚合函数
- * @param fn 要聚合的函数
+ * @param {function} fn 要聚合的函数
  * @returns {*}
  */
 export const composeFns = (...fn: Array<(...args: any) => any>) => {
@@ -43,7 +43,7 @@ export const composeFns = (...fn: Array<(...args: any) => any>) => {
 };
 
 /**
- * @description 获取url 上的query参数并转化为对象
+ * @description 直接获取当前url 上的query参数并转化为对象
  * @returns {Object}
  */
 export const getQueryObj = () => {
@@ -79,7 +79,7 @@ export const isPalindrome = (str: string) => {
  * @param delay 休眠时间
  * @returns {Promise}
  */
-export const wait = (delay: number) => {
+export const sleep = (delay: number) => {
   return new Promise((resolve: any) => {
     setTimeout(() => {
       resolve();
@@ -88,7 +88,7 @@ export const wait = (delay: number) => {
 };
 
 /**
- * @description: 模拟lodash的 _.get 方法
+ * @description: 模拟lodash的 get 方法
  * @param {Object} object
  * @param {Array|String} path - 路径例：'a.b[0].c' 或者 ['a', 'b', '0', 'c']
  * @param {any} defaultValue
@@ -135,6 +135,72 @@ export const recusiveTreeFilter = (
 };
 
 /**
+ * @description: 将树形数据根据指定字段名转换为组件展示格式数据
+ * @param {Array} list 对象数组
+ * @param {Array} mapKeys 字段映射对象
+ * @return {Array}
+ */
+export const dataTransKeys = (
+  list: IAnyObj[] = [],
+  mapKeys: IAnyObj = { label: "label", value: "value" }
+) => {
+  const keys = Object.keys(mapKeys);
+  return list.reduce((pre: IAnyObj[], item) => {
+    let { children = [] } = item;
+
+    keys.forEach((key) => {
+      const dataKey = mapKeys[key];
+      item[key] = item[dataKey];
+    });
+
+    if (children.length > 0) {
+      children = dataTransKeys(children, mapKeys);
+    }
+
+    return [...pre, { ...item, children }];
+  }, []);
+};
+
+/**
+ * @description: 树形数据深层根据id查找
+ * @param {Array} tree
+ * @param {number} id
+ * @param {string} parentIdKey
+ * @return {*}
+ */
+export const deepSearch = (
+  tree: IAnyObj[],
+  id: number,
+  parentIdKey: "parent_id"
+) => {
+  let parent_id = 0;
+  let currItem = null;
+  let temp = deepClone(tree);
+  while (temp.length > 0) {
+    const curr = temp.shift();
+    if (curr.id === id) {
+      parent_id = curr[parentIdKey];
+      temp = deepClone(tree);
+      break;
+    }
+    if (curr.children && curr.children.length > 0) {
+      temp = [].concat(temp, curr.children);
+    }
+  }
+  while (temp.length > 0) {
+    const curr = temp.shift();
+    if (curr.id === parent_id) {
+      currItem = curr;
+      break;
+    }
+    if (curr.children && curr.children.length > 0) {
+      temp = [].concat(temp, curr.children);
+    }
+  }
+  return currItem;
+};
+
+/**
  * @description 检查value是否为Object类型
  * @param {*} value
  * @returns {Boolean}
@@ -145,10 +211,10 @@ export const isObject = (value: any): boolean => {
 };
 
 /**
- * @description: 深度比较两个对象数组是否相等
+ * @description: 深度浅比较两个对象数组是否相等
  * @param {Array} arr1
  * @param {Array} arr2
- * @return {Boolean}
+ * @return {boolean}
  */
 export const isEqualArray = (arr1: any, arr2: any) => {
   let Equal = true;
@@ -186,7 +252,7 @@ export const isEqualArray = (arr1: any, arr2: any) => {
  * @param {object} b
  * @return {boolean}
  */
-export const isObjectValueEqual = (a: IAnyObj, b: IAnyObj) => {
+export const isEqualObject = (a: IAnyObj, b: IAnyObj) => {
   if (a === b) return true;
   const aProps = Object.getOwnPropertyNames(a);
   const bProps = Object.getOwnPropertyNames(b);
@@ -197,7 +263,7 @@ export const isObjectValueEqual = (a: IAnyObj, b: IAnyObj) => {
     for (const prop in a) {
       if (Object.prototype.hasOwnProperty.call(b, prop)) {
         if (typeof a[prop] === "object" && a[prop] !== null) {
-          if (!isObjectValueEqual(a?.[prop], b?.[prop])) return false;
+          if (!isEqualObject(a?.[prop], b?.[prop])) return false;
         } else if (a?.[prop] !== b?.[prop]) {
           return false;
         }
@@ -228,7 +294,7 @@ export const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
 };
 
 /**
- * @description: 深层合并对象数组
+ * @description: 深层合并打平对象数组
  * @param {T} arr
  * @param {Array<string>} omitProps
  * @return {T}
@@ -251,11 +317,12 @@ export default {
   getQueryObj,
   getIntRandom,
   isPalindrome,
-  wait,
+  sleep,
   recusiveTreeFilter,
+  deepSearch,
   isObject,
   isEqualArray,
-  isObjectValueEqual,
+  isEqualObject,
   omitPropInObjArray,
   flattern,
 };

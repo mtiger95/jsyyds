@@ -51,6 +51,7 @@ const checkKey = (event: IAnyObj, keyStr: TKeyStr) => {
 
 export const noDebuger: (
   whenConsoleOpenedCallback: (e?: Event) => void,
+  rootNode: string,
   limitStr: string
 ) => void = (
   whenConsoleOpenedCallback,
