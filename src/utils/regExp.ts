@@ -17,9 +17,12 @@ export const UPPER_REG = /^[A-Z]+$/;
 export const QQ_REG = /^[1-9][0-9]{4,9}$/;
 export const POSTCODE_REG = /[1-9]\d{5}(?!\d)/;
 export const EMAIL_REG = /^[\w-]+(.[\w-]+)*@[\w-]+(.[\w-]+)+$/;
-export const IP_REG = /((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d))/;
-export const IDCARD15_REG = /^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$/;
-export const IDCARD18_REG = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+export const IP_REG =
+  /((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d))/;
+export const IDCARD15_REG =
+  /^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$/;
+export const IDCARD18_REG =
+  /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
 export const PHONE_REG = /^1[345789][0-9]\d{8}$/;
 export const TEL_REG = /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/;
 
@@ -27,13 +30,15 @@ export const TEL_REG = /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/;
  * @description 时间相关正则
  */
 export const DATE_REG = /^(\d{4})-(\d{2})-(\d{2})$/;
-export const DATETIME_REG = /^(\d{4})-(\d{2})-(\d{2}) (\d{2})(?::\d{2}|:(\d{2}):(\d{2}))$/;
+export const DATETIME_REG =
+  /^(\d{4})-(\d{2})-(\d{2}) (\d{2})(?::\d{2}|:(\d{2}):(\d{2}))$/;
 
 /**
  * @description 其它正则，特殊字符检测
  */
 export const SPECIAL_SYMBOL_REG = /[^%&',;=?$\x22]+/;
-export const URL_REG = /(http|ftp|https):\/\/[\w-_]+(.[\w-_]+)+([\w-.,@?^=%&:/~+#]*[\w-@?^=%&/~+#])?/;
+export const URL_REG =
+  /(http|ftp|https):\/\/[\w-_]+(.[\w-_]+)+([\w-.,@?^=%&:/~+#]*[\w-@?^=%&/~+#])?/;
 export const PWD_REG = /^[a-zA-Z]\w{5,17}$/;
 
 /**
@@ -79,4 +84,26 @@ export const regCheck = function (str: string, type: string) {
     default:
       return true;
   }
+};
+
+export default {
+  FLOAT2_REG,
+  NUMBER_REG,
+  CHINESE_REG,
+  LOWER_REG,
+  UPPER_REG,
+  QQ_REG,
+  POSTCODE_REG,
+  EMAIL_REG,
+  IP_REG,
+  IDCARD15_REG,
+  IDCARD18_REG,
+  PHONE_REG,
+  TEL_REG,
+  DATE_REG,
+  DATETIME_REG,
+  SPECIAL_SYMBOL_REG,
+  URL_REG,
+  PWD_REG,
+  regCheck,
 };

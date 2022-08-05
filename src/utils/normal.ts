@@ -28,7 +28,6 @@ export const deepClone = (
   return cloneObj;
 };
 
-
 /**
  * @description 聚合函数
  * @param fn 要聚合的函数
@@ -87,7 +86,7 @@ export const wait = (delay: number) => {
     }, delay);
   });
 };
- 
+
 /**
  * @description: 模拟lodash的 _.get 方法
  * @param {Object} object
@@ -95,15 +94,18 @@ export const wait = (delay: number) => {
  * @param {any} defaultValue
  * @return {*} - 返回路径对应的值
  */
-export function deepGet(object:IAnyObj = {}, path: string | string[], defaultValue: any) {
+export function deepGet(
+  object: IAnyObj = {},
+  path: string | string[],
+  defaultValue: any
+) {
   return (
     (Array.isArray(path)
       ? path
-      : path.replace(/\[/g, '.').replace(/\]/g, '').split('.')
+      : path.replace(/\[/g, ".").replace(/\]/g, "").split(".")
     ).reduce((o, k) => (o || {})[k], object) || defaultValue
   );
 }
-
 
 /**
  * @description: 树形数据根据条件过滤
@@ -111,14 +113,17 @@ export function deepGet(object:IAnyObj = {}, path: string | string[], defaultVal
  * @param {Function} filterFn
  * @return {Array}
  */
-export const recusiveTreeFilter = (list: IAnyObj[] = [], filterFn = (v: any) => v) => {
-  return list.reduce((pre: IAnyObj[] , item) => {
-    const {children = []} = item;  
+export const recusiveTreeFilter = (
+  list: IAnyObj[] = [],
+  filterFn = (v: any) => v
+) => {
+  return list.reduce((pre: IAnyObj[], item) => {
+    const { children = [] } = item;
     const curItemOk = filterFn(item);
     if (curItemOk) {
       if (children.length > 0) {
         const _children = recusiveTreeFilter(children, filterFn);
-        const curItem = {...item, children: _children};
+        const curItem = { ...item, children: _children };
         pre = [...pre, curItem];
       } else {
         pre = [...pre, item];
@@ -128,7 +133,6 @@ export const recusiveTreeFilter = (list: IAnyObj[] = [], filterFn = (v: any) => 
     return pre;
   }, []);
 };
-
 
 /**
  * @description 检查value是否为Object类型
@@ -146,7 +150,7 @@ export const isObject = (value: any): boolean => {
  * @param {Array} arr2
  * @return {Boolean}
  */
-export const isEqualArray = (arr1: any , arr2: any) => {
+export const isEqualArray = (arr1: any, arr2: any) => {
   let Equal = true;
   if (isObject(arr1) && isObject(arr2)) {
     const aProps = Object.getOwnPropertyNames(arr1);
@@ -182,7 +186,7 @@ export const isEqualArray = (arr1: any , arr2: any) => {
  * @param {object} b
  * @return {boolean}
  */
-export const isObjectValueEqual = (a:IAnyObj, b:IAnyObj) => {
+export const isObjectValueEqual = (a: IAnyObj, b: IAnyObj) => {
   if (a === b) return true;
   const aProps = Object.getOwnPropertyNames(a);
   const bProps = Object.getOwnPropertyNames(b);
@@ -192,7 +196,7 @@ export const isObjectValueEqual = (a:IAnyObj, b:IAnyObj) => {
   if (isObject(a) && isObject(b)) {
     for (const prop in a) {
       if (Object.prototype.hasOwnProperty.call(b, prop)) {
-        if (typeof a[prop] === 'object' && a[prop] !== null) {
+        if (typeof a[prop] === "object" && a[prop] !== null) {
           if (!isObjectValueEqual(a?.[prop], b?.[prop])) return false;
         } else if (a?.[prop] !== b?.[prop]) {
           return false;
@@ -229,11 +233,29 @@ export const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
  * @param {Array<string>} omitProps
  * @return {T}
  */
-export const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (arr, key = 'children') => {
-  return arr.reduce((prev: IAnyObj[], {[key]: children, ...cur}) => {
+export const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
+  arr,
+  key = "children"
+) => {
+  return arr.reduce((prev: IAnyObj[], { [key]: children, ...cur }) => {
     if (children?.length > 0) {
       return prev.concat(cur).concat(flattern(children, key));
     }
     return prev.concat(cur);
   }, []);
-}
+};
+
+export default {
+  deepClone,
+  composeFns,
+  getQueryObj,
+  getIntRandom,
+  isPalindrome,
+  wait,
+  recusiveTreeFilter,
+  isObject,
+  isEqualArray,
+  isObjectValueEqual,
+  omitPropInObjArray,
+  flattern,
+};

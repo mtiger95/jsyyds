@@ -1,13 +1,14 @@
-# js tools
+# primordial javascript script tools
 
 [![Testing](https://github.com/mtiger95/jsyyds/actions/workflows/test.yml/badge.svg)](https://github.com/mtiger95/jsyyds/actions/workflows/test.yml)
 
 [![Release](https://github.com/mtiger95/jsyyds/actions/workflows/release.yml/badge.svg)](https://github.com/mtiger95/jsyyds/actions/workflows/release.yml)
 
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/jsyyds)
+
 ## js yyds
 
-> 用原生 JS 封装一些常用的方法，不去依赖其它任何工具库，打磨 JS 基本功，同时避免过于依赖工具库，性能更好，欢迎补充，提 PR
+> 用原生 JS 封装一些常用的方法，不去依赖其它任何工具库，性能更好，欢迎补充，提 PR
 
 > 目前分以下几个功能模块：
 
@@ -27,21 +28,17 @@ yarn add jsyyds
 > 全量引用： `import {[自定义名称]} from 'jsyyds'`
 
 ```js
-import jsyyds from 'jsyyds';
+import jsyyds from "jsyyds";
+
+jsyyds.xxx();
 ```
 
-> 按需引用（功能模块）: `import {[功能模块名]} from 'jsyyds'`
+> 按需引用（具体的函数|变量名）: `import {[函数名|变量名]} from 'jsyyds'`
 
 ```js
-import { normal } from 'jsyyds';
+import { deepClone } from "jsyyds";
+
+deepClone();
 ```
-
-> 按需引用（具体的函数|变量名）: `import {[函数名|变量名]} from 'jsyyds/lib/[功能模块名]'`
-
-```js
-import { debounce } from 'jsyyds/lib/event';
-```
-
----
 
 ---

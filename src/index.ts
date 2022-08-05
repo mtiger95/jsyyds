@@ -1,19 +1,16 @@
-import * as normal from './utils/normal';
-import * as download from './utils/download';
-import * as regExp from './utils/regExp';
-import * as special from './utils/special';
+export * from "./utils/normal";
+export * from "./utils/download";
+export * from "./utils/regExp";
+export * from "./utils/special";
 
-export { normal,  download, regExp, special };
+import normal from "./utils/normal";
+import download from "./utils/download";
+import regExp from "./utils/regExp";
+import special from "./utils/special";
 
-const jsyyds = {
-  normal, 
-  download, 
+export default {
+  normal,
+  download,
   regExp,
   special,
-  ...normal, 
-  ...download, 
-  ...regExp,
-  ...special,
 };
-
-export default jsyyds;
