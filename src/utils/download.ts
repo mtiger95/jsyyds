@@ -9,7 +9,7 @@ const mimeMap = {
  * @param {*} res blob响应内容
  * @param {String} mimeType MIME类型
  */
-export function resolveBlob(res: any, mimeType = mimeMap.xlsx): void {
+function resolveBlob(res: any, mimeType = mimeMap.xlsx): void {
   const aLink = document.createElement("a");
   const blob = new Blob([res.data], { type: mimeType });
   // //从response的headers中获取filename, 后端response.setHeader("Content-disposition", "attachment; filename=xxxx.docx") 设置的文件名;

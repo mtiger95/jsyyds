@@ -4,12 +4,9 @@ import { IAnyObj } from "../types";
  * @description 深拷贝
  * @param {any} obj
  * @param {any} [cache]
- * @returns {any}
+ * @return {any}
  */
-export const deepClone = (
-  obj: any,
-  cache: WeakMap<any, any> = new WeakMap()
-): any => {
+const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): any => {
   if (typeof obj !== "object") return obj;
   if (obj === null) return obj;
   if (cache.get(obj)) return cache.get(obj);
@@ -33,7 +30,7 @@ export const deepClone = (
  * @param {function} fn 要聚合的函数
  * @returns {*}
  */
-export const composeFns = (...fn: Array<(...args: any) => any>) => {
+const composeFns = (...fn: Array<(...args: any) => any>) => {
   if (fn.length === 0) return (...arg: any) => arg;
   if (fn.length === 1) return fn[0];
 
@@ -46,7 +43,7 @@ export const composeFns = (...fn: Array<(...args: any) => any>) => {
  * @description 直接获取当前url 上的query参数并转化为对象
  * @returns {Object}
  */
-export const getQueryObj = () => {
+const getQueryObj = () => {
   const queryObj = {} as IAnyObj;
   window.location.search.replace(
     /([^?&=]+)=([^&]+)/g,
@@ -61,7 +58,7 @@ export const getQueryObj = () => {
  * @param max 最大整数
  * @returns {Number} 两个整数之间的随机整数
  */
-export const getIntRandom = (min: number, max: number): number =>
+const getIntRandom = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
 /**
@@ -69,7 +66,7 @@ export const getIntRandom = (min: number, max: number): number =>
  * @param str 要检验的字符串
  * @returns {Boolean}
  */
-export const isPalindrome = (str: string) => {
+const isPalindrome = (str: string) => {
   str = str.replace(/\W/g, "").toLowerCase();
   return str == str.split("").reverse().join("");
 };
@@ -79,7 +76,7 @@ export const isPalindrome = (str: string) => {
  * @param delay 休眠时间
  * @returns {Promise}
  */
-export const sleep = (delay: number) => {
+const sleep = (delay: number) => {
   return new Promise((resolve: any) => {
     setTimeout(() => {
       resolve();
@@ -92,9 +89,9 @@ export const sleep = (delay: number) => {
  * @param {Object} object
  * @param {Array|String} path - 路径例：'a.b[0].c' 或者 ['a', 'b', '0', 'c']
  * @param {any} defaultValue
- * @return {*} - 返回路径对应的值
+ * @returns {*} - 返回路径对应的值
  */
-export function deepGet(
+function deepGet(
   object: IAnyObj = {},
   path: string | string[],
   defaultValue: any
@@ -111,12 +108,9 @@ export function deepGet(
  * @description: 树形数据根据条件过滤
  * @param {Array} list
  * @param {Function} filterFn
- * @return {Array}
+ * @returns {Array}
  */
-export const recusiveTreeFilter = (
-  list: IAnyObj[] = [],
-  filterFn = (v: any) => v
-) => {
+const recusiveTreeFilter = (list: IAnyObj[] = [], filterFn = (v: any) => v) => {
   return list.reduce((pre: IAnyObj[], item) => {
     const { children = [] } = item;
     const curItemOk = filterFn(item);
@@ -138,9 +132,9 @@ export const recusiveTreeFilter = (
  * @description: 将树形数据根据指定字段名转换为组件展示格式数据
  * @param {Array} list 对象数组
  * @param {Array} mapKeys 字段映射对象
- * @return {Array}
+ * @returns {Array}
  */
-export const dataTransKeys = (
+const dataTransKeys = (
   list: IAnyObj[] = [],
   mapKeys: IAnyObj = { label: "label", value: "value" }
 ) => {
@@ -166,13 +160,9 @@ export const dataTransKeys = (
  * @param {Array} tree
  * @param {number} id
  * @param {string} parentIdKey
- * @return {*}
+ * @returns {*}
  */
-export const deepSearch = (
-  tree: IAnyObj[],
-  id: number,
-  parentIdKey: "parent_id"
-) => {
+const deepSearch = (tree: IAnyObj[], id: number, parentIdKey: "parent_id") => {
   let parent_id = 0;
   let currItem = null;
   let temp = deepClone(tree);
@@ -205,7 +195,7 @@ export const deepSearch = (
  * @param {*} value
  * @returns {Boolean}
  */
-export const isObject = (value: any): boolean => {
+const isObject = (value: any): boolean => {
   const type = typeof value;
   return value != null && (type === "object" || type === "function");
 };
@@ -214,9 +204,9 @@ export const isObject = (value: any): boolean => {
  * @description: 深度浅比较两个对象数组是否相等
  * @param {Array} arr1
  * @param {Array} arr2
- * @return {boolean}
+ * @returns {boolean}
  */
-export const isEqualArray = (arr1: any, arr2: any) => {
+const isEqualArray = (arr1: any, arr2: any) => {
   let Equal = true;
   if (isObject(arr1) && isObject(arr2)) {
     const aProps = Object.getOwnPropertyNames(arr1);
@@ -250,9 +240,9 @@ export const isEqualArray = (arr1: any, arr2: any) => {
  * @description: 判断两个对象是否相等，同属性同值
  * @param {object} a
  * @param {object} b
- * @return {boolean}
+ * @returns {boolean}
  */
-export const isEqualObject = (a: IAnyObj, b: IAnyObj) => {
+const isEqualObject = (a: IAnyObj, b: IAnyObj) => {
   if (a === b) return true;
   const aProps = Object.getOwnPropertyNames(a);
   const bProps = Object.getOwnPropertyNames(b);
@@ -279,9 +269,9 @@ export const isEqualObject = (a: IAnyObj, b: IAnyObj) => {
  * @description: 从一维对象数组中过滤掉某些属性
  * @param {T} arr
  * @param {Array<string>} omitProps
- * @return {T}
+ * @returns {T}
  */
-export const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
+const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
   return arr.map((item) => {
     const itemKeys = Object.keys(item);
     return itemKeys.reduce((pre: IAnyObj, curKey) => {
@@ -297,9 +287,9 @@ export const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
  * @description: 深层合并打平对象数组
  * @param {T} arr
  * @param {Array<string>} omitProps
- * @return {T}
+ * @returns {T}
  */
-export const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
+const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
   arr,
   key = "children"
 ) => {
@@ -315,7 +305,7 @@ export const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
  * @description: 节流函数
  * @param {function} fn
  * @param {number} delay
- * @return {function}
+ * @returns {function}
  */
 function throttle(fn: (p: any) => any, delay: number) {
   let oldtime = Date.now();
@@ -333,7 +323,7 @@ function throttle(fn: (p: any) => any, delay: number) {
  * @description: 防抖函数
  * @param {function} fn
  * @param {number} wait
- * @return {function}
+ * @returns {function}
  */
 function debounce(fn: (p: any) => any, delay: number) {
   let timer = 0; // 维护一个 timer
@@ -355,6 +345,8 @@ export default {
   getIntRandom,
   isPalindrome,
   sleep,
+  deepGet,
+  dataTransKeys,
   recusiveTreeFilter,
   deepSearch,
   isObject,

@@ -49,7 +49,7 @@ const checkKey = (event: IAnyObj, keyStr: TKeyStr) => {
   return rightKey;
 };
 
-export const noDebuger: (
+const noDebuger: (
   whenConsoleOpenedCallback: (e?: Event) => void,
   rootNode: string,
   limitStr: string
@@ -141,7 +141,7 @@ export const noDebuger: (
  * @param {Function} whenFreshCb
  * @return {void}
  */
-export const browserCloseOrFreshAction = (whenCloseCb: () => void, whenFreshCb: () => void) => {
+const browserCloseOrFreshAction = (whenCloseCb: () => void, whenFreshCb: () => void) => {
   let beginTime = 0; // 执行onbeforeunload的开始时间
   let differTime = 0; // 时间差
   window.onunload = () => {

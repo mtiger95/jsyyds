@@ -1,6 +1,6 @@
 {
   "name": "jsyyds",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "常用JS方法封装",
   "main": "dist/index.js",
   "files": [
@@ -23,7 +23,8 @@
     "深拷贝",
     "防抖",
     "节流",
-    "格式化"
+    "树形数组处理",
+    "浏览器控制台"
   ],
   "license": "MIT",
   "bugs": {

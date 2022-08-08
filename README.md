@@ -6,11 +6,12 @@
 
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/jsyyds)
 
-> 使用 Typescript 封装一些常用的方法并编译为原生 JS ，没有依赖其它任何工具库，性能更好。
+> 使用 Typescript 封装一些实用的中高级方法并编译为原生 JS ，没有依赖其它任何工具库，性能更好。（Some common methods are encapsulated by Typescript and compiled into native JS, which has better performance without relying on any other tool libraries.）
 
-> 目前分以下几个功能模块：
+> 目前分以下几个功能模块(It is divided into the following functional modules.)：
 
-> normal - 常用方法，如：深拷贝，树形数组递归删除属性/条件过滤，深比较多层数组或对象否键值相等，深层次堆栈法根据 id 查找等等
+1. **normal - 常用方法，如：深拷贝，树形数组递归删除属性/条件过滤，深比较多层数组或对象否键值相等，深层次堆栈法根据 id 查找等等。（Commonly used methods, such as: deep copy, tree array recursive deletion attribute/condition filtering, deep comparison of multi-layer arrays or objects whether the key values are equal, deep stack method searching according to id, etc.）**
+
 - deepClone - 深拷贝
 
 ```js
@@ -147,7 +148,7 @@
  */
 ```
 
-2. special - 浏览器某些行为监测，如：浏览器是刷新还是关闭，禁止打开控制台。
+2. **special - 浏览器某些行为监测，如：浏览器是刷新还是关闭，禁止打开控制台。(Some behaviors of the browser are monitored, such as whether the browser is refreshed or closed, and it is forbidden to open the console)**
 ```js
 /**
  * @description: 禁止打开控制台，若通过浏览器自带功能进入，可传入回调自己处理或传入项目根节点，脚本将自动处理为空白页面。
@@ -159,8 +160,19 @@ const noDebuger: (
   limitStr: string
 ) => void
 ```
-3. regExp - 常用正则表则式
-4. 更多好用功能方法，正在逐步增加。
+
+```js
+/**
+ * @description: 检测浏览器是关闭还是刷新
+ * @param {Function} whenCloseCb
+ * @param {Function} whenFreshCb
+ * @return {void}
+ */
+
+export const browserCloseOrFreshAction = (whenCloseCb: () => void, whenFreshCb: () => void) => {}
+```
+3. **regExp - 常用正则表则式**
+4. **更多好用功能方法，正在逐步增加。**
 
 ---
 
