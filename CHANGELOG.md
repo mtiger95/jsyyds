@@ -1,3 +1,10 @@
+### [1.4.1](https://github.com/mtiger95/jsyyds/compare/v1.4.0...v1.4.1) (2022-08-10)
+
+
+### Chores
+
+* 修改peerDependencies版本为范围 ([fd58c48](https://github.com/mtiger95/jsyyds/commit/fd58c480429bd2278a3ff060f610050560025721))
+
 ## [1.4.0](https://github.com/mtiger95/jsyyds/compare/v1.3.0...v1.4.0) (2022-08-10)
 
 
