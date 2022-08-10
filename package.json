@@ -11,11 +11,15 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "buildbefore": "rm -rf ./dist ./utils ./hooks ./components",
-    "buildutils": "babel src/utils --extensions .js,.ts --out-dir utils && babel src/utils --extensions .js,.ts --out-dir dist",
+    "clean": "rm -rf ./dist ./utils ./hooks ./components",
+    "---build-each-dir": "",
+    "buildutils": "babel src/utils --extensions .js,.ts --out-dir utils",
+    "builddist": "babel src/utils --extensions .js,.ts --out-dir dist",
     "buildhooks": "babel src/hooks --extensions .js,.ts --out-dir hooks",
     "buildcomponents": "babel src/components --extensions .jsx,.tsx --out-dir components",
-    "build": "yarn buildbefore && run-p -r buildutils buildhooks buildcomponents",
+    "---build": "",
+    "buildall": "run-p buildutils builddist buildhooks buildcomponents",
+    "build": "run-s clean buildall",
     "watch": "yarn build --watch",
     "lint": "eslint src --fix",
     "semantic-release": "semantic-release"
