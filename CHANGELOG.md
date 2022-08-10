@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/mtiger95/jsyyds/compare/v1.3.0...v1.4.0) (2022-08-10)
+
+
+### Features
+
+* 优化打包速度 ([f1c69ac](https://github.com/mtiger95/jsyyds/commit/f1c69ac3c0591d2ccd422b362edca2ef09d459be))
+
 ## [1.3.0](https://github.com/mtiger95/jsyyds/compare/v1.2.0...v1.3.0) (2022-08-10)
 
 
