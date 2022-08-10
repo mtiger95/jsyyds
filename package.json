@@ -1,15 +1,22 @@
 {
   "name": "jsyyds",
-  "version": "2.6.2",
+  "version": "2.6.7",
   "description": "常用JS方法封装",
   "main": "dist/index.js",
   "files": [
+    "components",
+    "hooks",
+    "utils",
     "dist"
   ],
   "scripts": {
     "prepare": "husky install",
-    "build": "babel src --extensions .js,.ts,.jsx,.tsx --out-dir dist",
-    "watch": "babel src --extensions .js,.ts,.jsx,.tsx --out-dir dist --watch",
+    "buildbefore": "rm -rf ./dist ./utils ./hooks ./components",
+    "buildutils": "babel src/utils --extensions .js,.ts --out-dir utils && babel src/utils --extensions .js,.ts --out-dir dist",
+    "buildhooks": "babel src/hooks --extensions .js,.ts --out-dir hooks",
+    "buildcomponents": "babel src/components --extensions .jsx,.tsx --out-dir components",
+    "build": "yarn buildbefore && run-p -r buildutils buildhooks buildcomponents",
+    "watch": "yarn build --watch",
     "lint": "eslint src --fix",
     "semantic-release": "semantic-release"
   },

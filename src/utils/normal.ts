@@ -6,7 +6,7 @@ import { IAnyObj } from "../types";
  * @param {any} [cache]
  * @return {any}
  */
-const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): any => {
+export const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): any => {
   if (typeof obj !== "object") return obj;
   if (obj === null) return obj;
   if (cache.get(obj)) return cache.get(obj);
@@ -30,7 +30,7 @@ const deepClone = (obj: any, cache: WeakMap<any, any> = new WeakMap()): any => {
  * @param {function} fn 要聚合的函数
  * @returns {*}
  */
-const composeFns = (...fn: Array<(...args: any) => any>) => {
+export const composeFns = (...fn: Array<(...args: any) => any>) => {
   if (fn.length === 0) return (...arg: any) => arg;
   if (fn.length === 1) return fn[0];
 
@@ -43,7 +43,7 @@ const composeFns = (...fn: Array<(...args: any) => any>) => {
  * @description 直接获取当前url 上的query参数并转化为对象
  * @returns {Object}
  */
-const getQueryObj = () => {
+export const getQueryObj = () => {
   const queryObj = {} as IAnyObj;
   window.location.search.replace(
     /([^?&=]+)=([^&]+)/g,
@@ -58,7 +58,7 @@ const getQueryObj = () => {
  * @param max 最大整数
  * @returns {Number} 两个整数之间的随机整数
  */
-const getIntRandom = (min: number, max: number): number =>
+export const getIntRandom = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
 /**
@@ -66,7 +66,7 @@ const getIntRandom = (min: number, max: number): number =>
  * @param str 要检验的字符串
  * @returns {Boolean}
  */
-const isPalindrome = (str: string) => {
+export const isPalindrome = (str: string) => {
   str = str.replace(/\W/g, "").toLowerCase();
   return str == str.split("").reverse().join("");
 };
@@ -76,7 +76,7 @@ const isPalindrome = (str: string) => {
  * @param delay 休眠时间
  * @returns {Promise}
  */
-const sleep = (delay: number) => {
+export const sleep = (delay: number) => {
   return new Promise((resolve: any) => {
     setTimeout(() => {
       resolve();
@@ -91,7 +91,7 @@ const sleep = (delay: number) => {
  * @param {any} defaultValue
  * @returns {*} - 返回路径对应的值
  */
-function deepGet(
+export function deepGet(
   object: IAnyObj = {},
   path: string | string[],
   defaultValue: any
@@ -110,7 +110,7 @@ function deepGet(
  * @param {Function} filterFn
  * @returns {Array}
  */
-const recusiveTreeFilter = (list: IAnyObj[] = [], filterFn = (v: any) => v) => {
+export const recusiveTreeFilter = (list: IAnyObj[] = [], filterFn = (v: any) => v) => {
   return list.reduce((pre: IAnyObj[], item) => {
     const { children = [] } = item;
     const curItemOk = filterFn(item);
@@ -134,7 +134,7 @@ const recusiveTreeFilter = (list: IAnyObj[] = [], filterFn = (v: any) => v) => {
  * @param {Array} mapKeys 字段映射对象
  * @returns {Array}
  */
-const dataTransKeys = (
+export const dataTransKeys = (
   list: IAnyObj[] = [],
   mapKeys: IAnyObj = { label: "label", value: "value" }
 ) => {
@@ -162,7 +162,7 @@ const dataTransKeys = (
  * @param {string} parentIdKey
  * @returns {*}
  */
-const deepSearch = (tree: IAnyObj[], id: number, parentIdKey: "parent_id") => {
+export const deepSearch = (tree: IAnyObj[], id: number, parentIdKey: "parent_id") => {
   let parent_id = 0;
   let currItem = null;
   let temp = deepClone(tree);
@@ -195,7 +195,7 @@ const deepSearch = (tree: IAnyObj[], id: number, parentIdKey: "parent_id") => {
  * @param {*} value
  * @returns {Boolean}
  */
-const isObject = (value: any): boolean => {
+export const isObject = (value: any): boolean => {
   const type = typeof value;
   return value != null && (type === "object" || type === "function");
 };
@@ -206,7 +206,7 @@ const isObject = (value: any): boolean => {
  * @param {Array} arr2
  * @returns {boolean}
  */
-const isEqualArray = (arr1: any, arr2: any) => {
+export const isEqualArray = (arr1: any, arr2: any) => {
   let Equal = true;
   if (isObject(arr1) && isObject(arr2)) {
     const aProps = Object.getOwnPropertyNames(arr1);
@@ -242,7 +242,7 @@ const isEqualArray = (arr1: any, arr2: any) => {
  * @param {object} b
  * @returns {boolean}
  */
-const isEqualObject = (a: IAnyObj, b: IAnyObj) => {
+export const isEqualObject = (a: IAnyObj, b: IAnyObj) => {
   if (a === b) return true;
   const aProps = Object.getOwnPropertyNames(a);
   const bProps = Object.getOwnPropertyNames(b);
@@ -271,7 +271,7 @@ const isEqualObject = (a: IAnyObj, b: IAnyObj) => {
  * @param {Array<string>} omitProps
  * @returns {T}
  */
-const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
+export const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
   return arr.map((item) => {
     const itemKeys = Object.keys(item);
     return itemKeys.reduce((pre: IAnyObj, curKey) => {
@@ -289,7 +289,7 @@ const omitPropInObjArray = (arr = [], omitProps: string[] = []) => {
  * @param {Array<string>} omitProps
  * @returns {T}
  */
-const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
+export const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
   arr,
   key = "children"
 ) => {
@@ -307,7 +307,7 @@ const flattern: (arr: IAnyObj[], key: string) => IAnyObj[] = (
  * @param {number} delay
  * @returns {function}
  */
-function throttle(fn: (p: any) => any, delay: number) {
+export function throttle(fn: (p: any) => any, delay: number) {
   let oldtime = Date.now();
   return function (...args: any) {
     const newtime = Date.now();
@@ -325,7 +325,7 @@ function throttle(fn: (p: any) => any, delay: number) {
  * @param {number} wait
  * @returns {function}
  */
-function debounce(fn: (p: any) => any, delay: number) {
+export function debounce(fn: (p: any) => any, delay: number) {
   let timer = 0; // 维护一个 timer
   return function (...args: any) {
     if (timer) {

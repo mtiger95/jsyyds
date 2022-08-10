@@ -1,45 +1,45 @@
 /**
  * @description 数字相关正则
  */
-const FLOAT2_REG = /^\d*(?:.\d{0,2})?$/;
-const NUMBER_REG = /^[0-9]$/;
+export const FLOAT2_REG = /^\d*(?:.\d{0,2})?$/;
+export const NUMBER_REG = /^[0-9]$/;
 
 /**
  * @description 中文，英文，大小写相关正则
  */
-const CHINESE_REG = /^[\u4e00-\u9fa5]{0,}$/;
-const LOWER_REG = /^[a-z]+$/;
-const UPPER_REG = /^[A-Z]+$/;
+export const CHINESE_REG = /^[\u4e00-\u9fa5]{0,}$/;
+export const LOWER_REG = /^[a-z]+$/;
+export const UPPER_REG = /^[A-Z]+$/;
 
 /**
  * @description 各种号码相关正则
  */
-const QQ_REG = /^[1-9][0-9]{4,9}$/;
-const POSTCODE_REG = /[1-9]\d{5}(?!\d)/;
-const EMAIL_REG = /^[\w-]+(.[\w-]+)*@[\w-]+(.[\w-]+)+$/;
-const IP_REG =
+export const QQ_REG = /^[1-9][0-9]{4,9}$/;
+export const POSTCODE_REG = /[1-9]\d{5}(?!\d)/;
+export const EMAIL_REG = /^[\w-]+(.[\w-]+)*@[\w-]+(.[\w-]+)+$/;
+export const IP_REG =
   /((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d))/;
-const IDCARD15_REG =
+export const IDCARD15_REG =
   /^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$/;
-const IDCARD18_REG =
+export const IDCARD18_REG =
   /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
-const PHONE_REG = /^1[345789][0-9]\d{8}$/;
-const TEL_REG = /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/;
+export const PHONE_REG = /^1[345789][0-9]\d{8}$/;
+export const TEL_REG = /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/;
 
 /**
  * @description 时间相关正则
  */
-const DATE_REG = /^(\d{4})-(\d{2})-(\d{2})$/;
-const DATETIME_REG =
+export const DATE_REG = /^(\d{4})-(\d{2})-(\d{2})$/;
+export const DATETIME_REG =
   /^(\d{4})-(\d{2})-(\d{2}) (\d{2})(?::\d{2}|:(\d{2}):(\d{2}))$/;
 
 /**
  * @description 其它正则，特殊字符检测
  */
-const SPECIAL_SYMBOL_REG = /[^%&',;=?$\x22]+/;
-const URL_REG =
+export const SPECIAL_SYMBOL_REG = /[^%&',;=?$\x22]+/;
+export const URL_REG =
   /(http|ftp|https):\/\/[\w-_]+(.[\w-_]+)+([\w-.,@?^=%&:/~+#]*[\w-@?^=%&/~+#])?/;
-const PWD_REG = /^[a-zA-Z]\w{5,17}$/;
+export const PWD_REG = /^[a-zA-Z]\w{5,17}$/;
 
 /**
  * @description 常用正则验证，注意type大小写
@@ -47,7 +47,7 @@ const PWD_REG = /^[a-zA-Z]\w{5,17}$/;
  * @param type 要检测的类型
  * @returns {Boolean}
  */
-const regCheck = function (str: string, type: string) {
+export const regExpCheck = function (str: string, type: string) {
   switch (type) {
     case "PHONE": // 手机号码
       return PHONE_REG.test(str);
@@ -105,5 +105,5 @@ export default {
   SPECIAL_SYMBOL_REG,
   URL_REG,
   PWD_REG,
-  regCheck,
+  regExpCheck,
 };

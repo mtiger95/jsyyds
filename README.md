@@ -6,9 +6,9 @@
 
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/jsyyds)
 
-> 使用 Typescript 封装一些实用的中高级方法并编译为原生 JS ，没有依赖其它任何工具库，性能更好。（Some common methods are encapsulated by Typescript and compiled into native JS, which has better performance without relying on any other tool libraries.）
+> 使用 Typescript 封装一些实用的中高级方法并编译为原生 JS ，没有依赖其它任何工具库，性能更好。同时会逐步增加基于React的Hooks和函数式组件。（Some common methods are encapsulated by Typescript and compiled into native JS, which has better performance without relying on any other tool libraries.At the same time, Hooks and functional components based on React will be gradually added.）
 
-> 目前分以下几个功能模块(It is divided into the following functional modules.)：
+> 目前功能函数模块分以下几个功能模块(It is divided into the following functional modules.)：
 
 1. **normal - 常用方法，如：深拷贝，树形数组递归删除属性/条件过滤，深比较多层数组或对象否键值相等，深层次堆栈法根据 id 查找等等。（Commonly used methods, such as: deep copy, tree array recursive deletion attribute/condition filtering, deep comparison of multi-layer arrays or objects whether the key values are equal, deep stack method searching according to id, etc.）**
 
@@ -50,7 +50,7 @@
 - deepGet - 模拟lodash的 get 方法
 ```js
 /**
- * @description: 模拟lodash的 _.get 方法
+ * @description: 模拟lodash的 get 方法
  * @param {Object} object
  * @param {Array|String} path - 路径例：'a.b[0].c' 或者 ['a', 'b', '0', 'c']
  * @param {any} defaultValue
@@ -75,10 +75,10 @@
  * @return {Array}
  */
 ```
-- deepSearch - 树形数据深层根据id查找
+- deepSearch - 树形数据根据id深层查找
 ```js
 /**
- * @description: 树形数据深层根据id查找
+ * @description: 树形数据根据id深层查找
  * @param {Array} tree
  * @param {number} id
  * @param {string} parentIdKey
@@ -93,19 +93,19 @@
  * @returns {Boolean}
  */
 ```
--  isEqualArray - 深度浅比较两个对象数组是否相等
+-  isEqualArray - 深层浅比较两个对象数组是否相等
 ```js
 /**
- * @description: 深度浅比较两个对象数组是否相等
+ * @description: 深层浅比较两个对象数组是否相等
  * @param {Array} arr1
  * @param {Array} arr2
  * @return {boolean}
  */
 ```
-- isEqualObject - 判断两个对象是否相等，同属性同值
+- isEqualObject - 深层浅比较两个对象是否相等，同属性同值
 ```js
 /**
- * @description: 判断两个对象是否相等，同属性同值
+ * @description: 深层浅比较两个对象是否相等，同属性同值
  * @param {object} a
  * @param {object} b
  * @return {boolean}
@@ -120,10 +120,10 @@
  * @return {T}
  */
 ```
-- flattern - 深层合并打平对象数组
+- flattern - 深层合并打平树形数组
 ```js
 /**
- * @description: 深层合并打平对象数组
+ * @description: 深层合并打平树形数组
  * @param {Array} arr
  * @param {Array<string>} omitProps
  * @return {T}
@@ -187,15 +187,32 @@ yarn add jsyyds
 ```js
 import jsyyds from "jsyyds";
 
-jsyyds.xxx();
+jsyyds.deepClone();
 ```
 
-> 按需引用（具体的函数|变量名）: `import {[函数名|变量名]} from 'jsyyds'`
+> 按需引用功能函数（具体的函数|变量名）: `import {[函数名|变量名]} from 'jsyyds'`
 
 ```js
 import { deepClone } from "jsyyds";
+// 也可以这样用：import { deepClone } from "jsyyds/utils";
 
 deepClone();
+```
+
+> 按需引用Hook（具体的Hook名）: `import {[Hook名称]} from 'jsyyds/hooks'`
+
+```js
+import { useSafeState } from "jsyyds/hooks";
+
+const [state, setState] = useSafeState();
+```
+
+> 按需引用组件名（具体的组件名）: `import [组件名称] from 'jsyyds/hooks'`
+
+```js
+import Demo from 'jsyyds/components/Demo';
+
+<Demo />
 ```
 
 ---
