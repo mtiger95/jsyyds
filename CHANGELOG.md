@@ -1,3 +1,37 @@
+### [1.4.1](https://github.com/mtiger95/jsyyds/compare/v1.4.0...v1.4.1) (2022-08-10)
+
+
+### Chores
+
+* 修改peerDependencies版本为范围 ([fd58c48](https://github.com/mtiger95/jsyyds/commit/fd58c480429bd2278a3ff060f610050560025721))
+
+## [1.4.0](https://github.com/mtiger95/jsyyds/compare/v1.3.0...v1.4.0) (2022-08-10)
+
+
+### Features
+
+* 优化打包速度 ([f1c69ac](https://github.com/mtiger95/jsyyds/commit/f1c69ac3c0591d2ccd422b362edca2ef09d459be))
+
+## [1.3.0](https://github.com/mtiger95/jsyyds/compare/v1.2.0...v1.3.0) (2022-08-10)
+
+
+### Features
+
+* add secret storage class ([cf15d0b](https://github.com/mtiger95/jsyyds/commit/cf15d0b0130f30b85e20786e8d45cdf8027e1f78))
+* 一点优化 ([e6a9fba](https://github.com/mtiger95/jsyyds/commit/e6a9fbade56bf5f7de91e0d8e5bd675f28416047))
+* 代码优化 ([4bf7329](https://github.com/mtiger95/jsyyds/commit/4bf7329dd2241d1fe3c0935db6e86f7028f7cc9d))
+* 优化打包命令和增加hooks与components文件夹 ([0d0a08c](https://github.com/mtiger95/jsyyds/commit/0d0a08c0a3b714498f45d312bdfca87da82d9c7a))
+* 修复打包后函数注释与函数对应不上问题 ([bf61733](https://github.com/mtiger95/jsyyds/commit/bf6173366f9efd8e93edc4533e03b9a21a1b5893))
+* 更新md ([6dcd36a](https://github.com/mtiger95/jsyyds/commit/6dcd36a4872c3b1638c874d007554a3ad88ad22b))
+* 添加递归数组和对象相关常规方法，浏览器行为监测方法 ([5352e3e](https://github.com/mtiger95/jsyyds/commit/5352e3eeb5cef73f3463264ad22a76a416885a20))
+* 调整导出逻辑 ([3bf4682](https://github.com/mtiger95/jsyyds/commit/3bf468257bb0d49c5235e7f174a983fd2b55304e))
+
+
+### Refactors
+
+* 优化打包框架,为后续上传React组件提供支持 ([5e2950a](https://github.com/mtiger95/jsyyds/commit/5e2950a10ce42c44e65788d8af422c20bd706cff))
+* 完善正则模块 ([3f1d1cf](https://github.com/mtiger95/jsyyds/commit/3f1d1cf0f4df6d2ab55c57160ac62e949e59deb6))
+
 ## [1.2.0](https://github.com/mtiger95/jsyyds/compare/v1.1.0...v1.2.0) (2021-12-21)
 
 
