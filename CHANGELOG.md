@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/mtiger95/jsyyds/compare/v1.4.1...v1.5.0) (2022-08-11)
+
+
+### Features
+
+* update lib title ([a5b7f92](https://github.com/mtiger95/jsyyds/commit/a5b7f92e8a4f7405dc30a984ffd78de4950495ba))
+
 ### [1.4.1](https://github.com/mtiger95/jsyyds/compare/v1.4.0...v1.4.1) (2022-08-10)
 
 
