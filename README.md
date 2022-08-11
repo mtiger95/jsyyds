@@ -1,4 +1,4 @@
-# primordial javascript script tools
+# Primordial Javascript Script Tools
 
 [![Testing](https://github.com/mtiger95/jsyyds/actions/workflows/test.yml/badge.svg)](https://github.com/mtiger95/jsyyds/actions/workflows/test.yml)
 
